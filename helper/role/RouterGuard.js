@@ -27,9 +27,11 @@ function RouterGuard(props) {
             try {
                 info = await props.getInfoUser()
                 if (Object.keys(info).length === 0) {
+                    if(url === "/") return true
                     await router.push('/login')
                 }
             } catch (e) {
+                if(url === "/") return true
                 await router.push('/login')
             }
         }
