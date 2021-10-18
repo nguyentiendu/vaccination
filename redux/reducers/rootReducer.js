@@ -5,7 +5,7 @@ import vaccinationPlaceReducer from './vaccinationPlaceReducer'
 import authReducer from "./authReducer";
 import provincesReducer from './provincesReducer'
 import accountOrganizationReducer from './accountOrganizationReducer'
-
+import adminReducer from './adminReducer'
 
 const rootReducer = combineReducers({
     loaderReducer,
@@ -14,6 +14,7 @@ const rootReducer = combineReducers({
     vaccinationPlaceReducer,
     provincesReducer,
     accountOrganizationReducer,
+    adminReducer,
 })
 
 export default rootReducer

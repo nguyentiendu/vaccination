@@ -229,3 +229,43 @@ export const accountOrganizationServices = {
         })
     }
 }
+
+export const accountsServices = {
+    getAllDataAccountsServices: () => {
+        return Axios({
+            url: `${DOMAIN_API}/account/show_account`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+        },);
+    },
+    addNewAccountServices: (dataAccount) => {
+        return Axios({
+            url: `${DOMAIN_API}/account/create_account`,
+            method: "POST",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            data: dataAccount
+        },);
+    },
+    deleteAccountServices: (id) => {
+        return Axios({
+            url: `${DOMAIN_API}/account/delete_account`,
+            method: "DELETE",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            params: {
+                id: id
+            }
+        },);
+    },
+};

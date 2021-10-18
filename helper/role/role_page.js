@@ -15,7 +15,7 @@ const rolePage = {
     ],
     // 1 admin
     "ADMIN": [
-
+        "/admin",
     ],
     // 2 quan ly
     "MANAGEMENT": [
