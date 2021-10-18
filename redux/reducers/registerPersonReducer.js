@@ -8,7 +8,8 @@ const initialState = {
 
 const registerPersonReducer = (state = initialState, action) => {
     switch(action.type){
-        case TYPE.CREATE_REGISTER_PERSON:
+        case TYPE.GET_REGISTER_PERSON:
+            state.dataRegisterPerson = [...action.dataRegisterPerson]
             return {...state}
         case TYPE.GET_DATA_PLACE:
             state.dataAllPlace = [...action.dataAllPlace]

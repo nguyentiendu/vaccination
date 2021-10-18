@@ -1,11 +1,13 @@
 import { registerServices } from '../../services/servicesAPI';
-import {CREATE_REGISTER_PERSON , GET_DATA_PLACE} from '../types/registerPersonType'
+import {CREATE_REGISTER_PERSON , GET_DATA_PLACE, GET_REGISTER_PERSON} from '../types/registerPersonType'
 import {openLoadingAction, closeLoadingAction} from "./loaderAction";
 import {HTTP_200} from "../../services/define_HTTP";
-//Create register person action
-export const addNewRegisterPersonAction = (newDataPerson) => ({
-    type: CREATE_REGISTER_PERSON,
-    newDataPerson
+import { snackActions } from '../../helper/showSnackBar';
+
+//get data register person 
+export const getAllRegisterPersonAction = (dataRegisterPerson) => ({
+    type: GET_REGISTER_PERSON,
+    dataRegisterPerson
 })
 //Get data place
 export const getVaccinationPlaceAction = (dataAllPlace) => ({
@@ -13,25 +15,40 @@ export const getVaccinationPlaceAction = (dataAllPlace) => ({
     dataAllPlace
 })
 //Create register person
-export const addNewRegisterPerson = (newDataPerson) => async dispatch =>{
-    //turn on loading
-    dispatch(openLoadingAction());
-    //load 3s api
-    setTimeout(() => {
-        /// turn off loading
+export const addNewRegisterPerson = (dataRegisterPerson) => async dispatch =>{
+    try{
+        dispatch(openLoadingAction())
+        const res = await registerServices.addNewRegisterPersonServices({
+            "id_vaccine_place": dataRegisterPerson.id_place,
+            "id_priority": dataRegisterPerson.id_priority,
+            "is_sick": dataRegisterPerson.sick,
+            "note": dataRegisterPerson.note,
+            "number_of_times": dataRegisterPerson.numberInject
+        })
+        console.log(res)
+        if(res.status === HTTP_200 && res.data.status){
+            // snackActions.success("Đăng ký tiêm thành công 🎉");
+            const reloadData = await registerServices.getAllDataRegisterPerson()
+            console.log("reload Data: ",reloadData);
+            // if(reloadData.status === HTTP_200 && reloadData.data.status){
+            //     dispatch(getAllRegisterPersonAction(reloadData.data.data));
+            //     console.log(reloadData);
+            // }
+            dispatch(closeLoadingAction())
+            return true
+        }else{
+            dispatch(closeLoadingAction())
+            return false
+        }
+    }catch(e){
         dispatch(closeLoadingAction())
-    }, 3000)
-
-    //push up redux
-    dispatch(addNewRegisterPersonAction(newDataPerson));
-    return true;
+        return false;
+    }
 }
 //Get data place api
 export const getAllDataPlace = () => async dispatch => {
     const res = await registerServices.getDataVaccinationPlace();
-    // console.log(res.data.data);
     if(res.status === HTTP_200 && res.data.status){
-        
         dispatch(getVaccinationPlaceAction(res.data.data))
     }
     
