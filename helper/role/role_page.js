@@ -10,7 +10,8 @@ const rolePage = {
     // phải đăng nhập mới vào đc
     "USER_LOGIN": [
         "/register_vaccine",
-        "/profile"
+        "/profile",
+        "/registration_vaccination"
     ],
     // 1 admin
     "ADMIN": [

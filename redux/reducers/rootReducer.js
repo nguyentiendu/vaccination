@@ -4,7 +4,6 @@ import loaderReducer from "./loaderReducer";
 import vaccinationPlaceReducer from './vaccinationPlaceReducer'
 import authReducer from "./authReducer";
 import provincesReducer from './provincesReducer'
-import registerPersonReducer from './registerPersonReducer'
 import accountOrganizationReducer from './accountOrganizationReducer'
 
 
@@ -14,7 +13,6 @@ const rootReducer = combineReducers({
     vaccinesReducer,
     vaccinationPlaceReducer,
     provincesReducer,
-    registerPersonReducer,
     accountOrganizationReducer,
 })
 

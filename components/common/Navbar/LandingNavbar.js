@@ -9,12 +9,12 @@ import Divider from '@mui/material/Divider';
 import IconButton from '@mui/material/IconButton';
 import Tooltip from '@mui/material/Tooltip';
 import Logout from '@mui/icons-material/Logout';
-
-import SCSS from './SCSSNavbar.module.scss'
 import {connect} from "react-redux";
-import {isEmptyObject} from "../../../helper/validate/check_value";
 import Cookies from "js-cookie";
 import {useRouter} from "next/router";
+
+import SCSS from './SCSSNavbar.module.scss'
+import {isEmptyObject} from "../../../helper/validate/check_value";
 
 function LandingNavbar(props) {
 

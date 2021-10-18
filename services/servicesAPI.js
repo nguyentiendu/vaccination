@@ -11,6 +11,29 @@ export const registerServices = {
             url: `${DOMAIN_API}/vaccination_place/show_vaccination_place_`,
             method: "GET"
         })
+    },
+    registrationVaccinationServices: (data) =>{
+        return Axios({
+            url: `${DOMAIN_API}/injections/registration_vaccination`,
+            method: "POST",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            data: data
+        })
+    },
+    getAllDataRegisterPerson: () => {
+        return Axios({
+            url: `${DOMAIN_API}/injections/search_registration`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            }
+        })
     }
 }
 
