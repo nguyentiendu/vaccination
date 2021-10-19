@@ -14,6 +14,7 @@ const authReducer = (state = initialState, action) => {
     switch (action.type) {
         case LOGIN:
             state.userInfo = {
+                idUser: action.dataInfoUser.id_user,
                 fullName: action.dataInfoUser.name_user,
                 idRole: action.dataInfoUser.role,
                 email: action.dataInfoUser.email,
@@ -31,6 +32,7 @@ const authReducer = (state = initialState, action) => {
 
         case GET_USER_INFO:
             state.userInfo = {
+                idUser: action.dataInfoUser.id_user,
                 fullName: action.dataInfoUser.name_user,
                 idRole: action.dataInfoUser.role,
                 email: action.dataInfoUser.email,

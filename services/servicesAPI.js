@@ -188,13 +188,36 @@ export const authServices = {
             method: "POST",
             data: dataOrganization,
         },);
-    }
+    },
 }
 
 export const userServices = {
     getInfoUserServices: () => {
         return Axios({
             url: `${DOMAIN_API}/users/show_myinfo`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+        },);
+    },
+    changeProfileServices: (data) => {
+        return Axios({
+            url: `${DOMAIN_API}/users/create_myinfo`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            method: "POST",
+            data: data,
+        },);
+    },
+    getRegistration: () => {
+        return Axios({
+            url: `${DOMAIN_API}/injections/search_registration`,
             method: "GET",
             headers: {
                 "Access-Control-Allow-Origin": "*",

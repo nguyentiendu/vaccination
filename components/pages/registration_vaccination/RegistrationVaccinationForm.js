@@ -86,7 +86,6 @@ export const dataHealth = [
         "is_sick": true,
         "name_health": "Ốm"
     }
-
 ]
 
 function RegistrationVaccinationForm(props) {

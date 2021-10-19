@@ -1,8 +1,24 @@
 import Landing from "../layouts/Landing";
-import React from "react";
+import React, {useEffect} from "react";
 import RegistrationVaccinationForm from "../components/pages/registration_vaccination/RegistrationVaccinationForm";
+import {connect} from "react-redux";
+import {useRouter} from "next/router";
+import {snackActions} from "../helper/showSnackBar";
 
-export default function RegistrationVaccination() {
+function RegistrationVaccination(props) {
+
+    const {userInfo} = props.userInfo;
+
+    const router = useRouter()
+
+    useEffect(() => {
+        if(userInfo.idUser.toString() === "0"){
+            router.push('/profile').then(()=>{
+                snackActions.info('Bạn cần phải nhập đầy đủ thông tin cá nhân trước khi đăng ký')
+            })
+        }
+    }, [])
+
     return (
         <Landing>
             <div className="flex flex-wrap">
@@ -15,3 +31,11 @@ export default function RegistrationVaccination() {
         </Landing>
     )
 }
+
+const mapStateToProps = (state) => ({
+    userInfo: state.authReducer,
+});
+
+const mapDispatchToProps = {};
+
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationVaccination);

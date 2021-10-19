@@ -1,5 +1,5 @@
 export const validationInvalid = (string) => {
-    return string.length === 0
+    return string.toString().length === 0
 }
 
 export const validationEmail = (email) => {

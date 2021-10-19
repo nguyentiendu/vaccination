@@ -5,11 +5,23 @@ import LandingFooter from "../components/common/Footer/LandingFooter.js";
 import SCSS from "../components/common/Navbar/SCSSNavbar.module.scss";
 import Button from "@mui/material/Button";
 import { useRouter } from 'next/router';
+import {changeProfileAction} from "../redux/actions/profileAction";
+import {connect} from "react-redux";
+import {snackActions} from "../helper/showSnackBar";
 
-export default function Landing({children}) {
+function Landing(props) {
+
+    const {userInfo} = props.userInfo;
 
     const router = useRouter()
-    const navigateInjection = () => router.push("/registration_vaccination")
+    const navigateInjection = () => {
+        if(userInfo.idUser.toString() === "0"){
+            snackActions.info('Bạn cần phải nhập đầy đủ thông tin cá nhân trước khi đăng ký')
+            router.push("/profile")
+        }else{
+            router.push("/registration_vaccination")
+        }
+    }
 
     return (
         <>
@@ -36,8 +48,18 @@ export default function Landing({children}) {
                     </div>
                 </div>
             </main>
-            {children}
+            {props.children}
             <LandingFooter/>
         </>
     );
 }
+
+const mapStateToProps = (state) => ({
+    userInfo: state.authReducer,
+});
+
+const mapDispatchToProps = {
+    changeProfileAction
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Landing);
