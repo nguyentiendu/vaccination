@@ -6,6 +6,7 @@ import authReducer from "./authReducer";
 import provincesReducer from './provincesReducer'
 import accountOrganizationReducer from './accountOrganizationReducer'
 import profileReducer from './profileReducer'
+import adminReducer from './adminReducer'
 
 const rootReducer = combineReducers({
     loaderReducer,
@@ -15,6 +16,7 @@ const rootReducer = combineReducers({
     provincesReducer,
     accountOrganizationReducer,
     profileReducer,
+    adminReducer,
 })
 
 export default rootReducer
