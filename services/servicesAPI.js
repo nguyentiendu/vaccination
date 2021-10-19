@@ -226,6 +226,17 @@ export const userServices = {
             },
         },);
     },
+    getMyVaccinationPlaceServices: () => {
+        return Axios({
+            url: `${DOMAIN_API}/users/show_vaccination_place`,
+            method: "POST",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+        },);
+    },
 }
 
 export const accountOrganizationServices = {
@@ -292,3 +303,29 @@ export const accountsServices = {
         },);
     },
 };
+
+export const registrationVaccineServices = {
+    getAllRegistrationServices: () => {
+        return Axios({
+            url: `${DOMAIN_API}/injections/show_registration_vaccination`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+        },);
+    },
+    scheduleInjectionsServices: (data) => {
+        return Axios({
+            url: `${DOMAIN_API}/injections/schedule_injections`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            method: "POST",
+            data: data,
+        },);
+    },
+}

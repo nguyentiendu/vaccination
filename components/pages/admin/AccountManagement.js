@@ -6,7 +6,7 @@ export default function AccountManagement() {
         <>
             <div className={VCManagementCSS.wrapperButton}>
                 <div className="my-5 ml-2 uppercase text-blueGray-600 text-lg font-bold">
-                    Danh mục Vaccine
+                    Quản lý tài khoản
                 </div>
             </div>
             <DataTableAccounts/>

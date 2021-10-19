@@ -26,7 +26,8 @@ const rolePage = {
     ],
     // 3 quan ly diem tiem
     "VACCINATION_PLACE": [
-
+        "/vaccination_place",
+        "/vaccination_place/schedule_injections",
     ],
     // 4 doanh nghiep
     "ORGANIZATION": [

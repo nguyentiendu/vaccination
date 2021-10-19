@@ -128,7 +128,7 @@ function RegistrationVaccinationForm(props) {
                 snackActions.success('Đăng ký tiêm thành công 🎉')
                 await router.push('/profile')
             } else {
-                snackActions.error('Đăng ký thất bại, vui lòng kiểm tra lại')
+                snackActions.error('Đăng ký thất bại, Yêu cầu chọn đúng mũi tiêm tiếp theo!')
             }
         }
     }

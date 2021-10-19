@@ -79,35 +79,35 @@ function Sidebar(props) {
                 <>
                     <ul className="md:flex-col md:min-w-full flex flex-col list-none">
                         <li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>
-                            <Link href="/">
+                            <Link href="/vaccination_place/schedule_injections">
                                 <a
-                                    href="#pablo"
+                                    href="#"
                                     className="text-xs uppercase py-3 font-bold block"
                                 >
                                     <i className="fas fa-syringe mx-2 text-sm"></i> Đơn đăng ký tiêm
                                 </a>
                             </Link>
                         </li>
-                        <li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>
-                            <Link href="/">
-                                <a
-                                    href="#pablo"
-                                    className="text-xs uppercase py-3 font-bold block"
-                                >
-                                    <i className="fas fa-hospital-user mx-2 text-sm"></i> Xếp lịch tiêm
-                                </a>
-                            </Link>
-                        </li>
-                        <li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>
-                            <Link href="/">
-                                <a
-                                    href="#pablo"
-                                    className="text-xs uppercase py-3 font-bold block"
-                                >
-                                    <i className="fas fa-hospital-user mx-2 text-sm"></i> Hồ sơ tiêm chủng
-                                </a>
-                            </Link>
-                        </li>
+                        {/*<li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>*/}
+                        {/*    <Link href="/">*/}
+                        {/*        <a*/}
+                        {/*            href="#pablo"*/}
+                        {/*            className="text-xs uppercase py-3 font-bold block"*/}
+                        {/*        >*/}
+                        {/*            <i className="fas fa-hospital-user mx-2 text-sm"></i> Xếp lịch tiêm*/}
+                        {/*        </a>*/}
+                        {/*    </Link>*/}
+                        {/*</li>*/}
+                        {/*<li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>*/}
+                        {/*    <Link href="/">*/}
+                        {/*        <a*/}
+                        {/*            href="#pablo"*/}
+                        {/*            className="text-xs uppercase py-3 font-bold block"*/}
+                        {/*        >*/}
+                        {/*            <i className="fas fa-hospital-user mx-2 text-sm"></i> Hồ sơ tiêm chủng*/}
+                        {/*        </a>*/}
+                        {/*    </Link>*/}
+                        {/*</li>*/}
                     </ul>
                 </>
             );

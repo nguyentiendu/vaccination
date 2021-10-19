@@ -41,7 +41,7 @@ export const changeProfileAction = (dataProfile) => async dispatch => {
             insurance: dataProfile.insurance,
             gender: dataProfile.gender,
             dob: dataProfile.dob,
-            id_district: dataProfile.idDistrict.toString(),
+            id_district: dataProfile.idDistrict,
             id_city: dataProfile.idCity,
             id_sub_district: dataProfile.idSubDistrict,
         })

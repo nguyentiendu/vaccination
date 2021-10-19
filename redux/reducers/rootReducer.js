@@ -7,6 +7,7 @@ import provincesReducer from './provincesReducer'
 import accountOrganizationReducer from './accountOrganizationReducer'
 import profileReducer from './profileReducer'
 import adminReducer from './adminReducer'
+import scheduleInjectionsReducer from "./scheduleInjectionsReducer";
 
 const rootReducer = combineReducers({
     loaderReducer,
@@ -17,6 +18,7 @@ const rootReducer = combineReducers({
     accountOrganizationReducer,
     profileReducer,
     adminReducer,
+    scheduleInjectionsReducer,
 })
 
 export default rootReducer

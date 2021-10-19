@@ -55,7 +55,7 @@ function LandingNavbar(props) {
             )
         }else if(userInfo.idRole.toString() === "3"){
             return (
-                <MenuItem onClick={async ()=>{await router.push('/vaccine_place')}}>
+                <MenuItem onClick={async ()=>{await router.push('/vaccination_place')}}>
                     <p>Quản lý điểm tiêm</p>
                 </MenuItem>
             )
