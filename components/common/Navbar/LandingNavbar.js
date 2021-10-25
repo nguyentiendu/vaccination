@@ -103,6 +103,9 @@ function LandingNavbar(props) {
                         <MenuItem onClick={async ()=>{await router.push("/profile")}}>
                             <p>Hồ sơ</p>
                         </MenuItem>
+                        <MenuItem onClick={async ()=>{await router.push("/vaccination_record")}}>
+                            <p>Tra cứu hồ sơ tiêm chủng</p>
+                        </MenuItem>
                         <Divider />
                         <MenuItem onClick={onClickLogout}>
                             <Logout fontSize="small" className="mr-4"/>

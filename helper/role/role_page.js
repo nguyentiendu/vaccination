@@ -11,7 +11,8 @@ const rolePage = {
     "USER_LOGIN": [
         "/register_vaccine",
         "/profile",
-        "/registration_vaccination"
+        "/registration_vaccination",
+        "/vaccination_record"
     ],
     // 1 admin
     "ADMIN": [
