@@ -214,7 +214,6 @@ function RegistrationVaccinationForm(props) {
                                 defaultValue={userInfo.gender === "male" ? "Nam" : "Nữ"}
                             >
                             </TextField>
-
                         </div>
                         <div>
                             <p className="mb-2">Số điện thoại</p>
@@ -314,7 +313,7 @@ function RegistrationVaccinationForm(props) {
                 <div className="font-medium mt-2">2. Thông tin đăng ký tiêm chủng</div>
                 <div className="grid grid-cols-1 md:grid-cols-4 gap-x-8 gap-y-4 md:gap-6">
                     <div>
-                        <p className="mb-2">Đăng ký mũi tiêm thứ (<span className={RegisterStyle.asterisk}>*</span>)</p>
+                        <p className="mb-2">Đăng ký mũi tiêm thứ (<span className={RegisterStyle.asterisk}>* chọn đúng mũi tiêm</span>)</p>
                         <TextField
                             size="small"
                             className="min-w-full xl:w-full"

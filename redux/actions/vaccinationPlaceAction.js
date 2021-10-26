@@ -1,14 +1,34 @@
-import {GET_ALL_VACCINATION_PLACE} from '../types/vaccinationPlaceType'
+import {GET_ALL_VACCINATION_PLACE, CURRENT_PlACE} from '../types/vaccinationPlaceType'
 import {openLoadingAction, closeLoadingAction} from "./loaderAction";
 import {HTTP_200} from "../../services/define_HTTP";
 import {snackActions} from "../../helper/showSnackBar";
-import {vaccinationPlaceServices, vaccinesServices} from '../../services/servicesAPI';
-import {getAllVaccinesActions} from "./vaccinesAction";
+import {userServices, vaccinationPlaceServices} from '../../services/servicesAPI';
 
 export const getAllVaccinationPlaceActions = (dataVaccinationPlace) => ({
     type: GET_ALL_VACCINATION_PLACE,
     dataVaccinationPlace
 })
+
+export const getCurrentPlaceActions = (currentPlace) => ({
+    type: CURRENT_PlACE,
+    currentPlace
+})
+
+export const getCurrentPlace = () => async dispatch =>{
+    try{
+        const res = await userServices.getMyVaccinationPlaceServices()
+        if(res.status === HTTP_200 && res.data.status){
+            dispatch(getCurrentPlaceActions(res.data.data))
+            return true
+        }else{
+            snackActions.error('Tải dữ liệu điểm tiêm thất bại')
+            return false
+        }
+    }catch (e){
+        snackActions.error('Tải dữ liệu điểm tiêm thất bại')
+        return false
+    }
+}
 
 export const getAllVaccinationPlace = () => async dispatch =>{
     try{

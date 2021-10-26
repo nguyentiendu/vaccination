@@ -1,7 +1,8 @@
 import * as TYPE from "../types/profileType";
 
 const initialState = {
-    dataRegistration: {}
+    dataRegistration: {},
+    dataScheduleInjection: {},
 }
 
 const profileReducer = (state = initialState, action) => {
@@ -21,6 +22,20 @@ const profileReducer = (state = initialState, action) => {
                     date : action.dataRegistrationVaccination.date,
                     note : action.dataRegistrationVaccination.note,
                     numberOfTimes : action.dataRegistrationVaccination.number_of_times,
+                }
+            }
+            return { ...state }
+
+        case TYPE.GET_MY_SCHEDULE_INJECTION:
+            if(Object.keys(action.myScheduleInjection).length === 0){
+                state.dataScheduleInjection = {}
+            } else {
+                state.dataScheduleInjection = {
+                    date : action.myScheduleInjection.Date,
+                    idVaccine : action.myScheduleInjection.id_vaccine,
+                    vaccine : action.myScheduleInjection.Vaccine,
+                    idVaccinePlace : action.myScheduleInjection.id_vaccine_place,
+                    nameVaccinePlace: action.myScheduleInjection.name_vaccine_place
                 }
             }
             return { ...state }

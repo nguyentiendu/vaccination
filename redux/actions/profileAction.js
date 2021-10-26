@@ -2,12 +2,17 @@ import {closeLoadingAction, openLoadingAction} from "./loaderAction";
 import {userServices} from "../../services/servicesAPI";
 import {HTTP_200} from "../../services/define_HTTP";
 import {getInfoUserAction} from "./authAction";
-import {GET_INFO_REGISTRATION_VACCINATION} from "../types/profileType";
+import {GET_INFO_REGISTRATION_VACCINATION, GET_MY_SCHEDULE_INJECTION} from "../types/profileType";
 import {snackActions} from "../../helper/showSnackBar";
 
 export const getRegistrationVaccinationAction = (dataRegistrationVaccination) => ({
     type: GET_INFO_REGISTRATION_VACCINATION,
     dataRegistrationVaccination,
+});
+
+export const getMyScheduleInjectionAction = (myScheduleInjection) => ({
+    type: GET_MY_SCHEDULE_INJECTION,
+    myScheduleInjection,
 });
 
 export const getRegistrationVaccination = () => async dispatch => {
@@ -25,6 +30,26 @@ export const getRegistrationVaccination = () => async dispatch => {
         }
     } catch (e) {
         dispatch(getRegistrationVaccinationAction({}))
+        dispatch(closeLoadingAction())
+        return false
+    }
+}
+
+export const getMyScheduleInjection = () => async dispatch => {
+    try {
+        dispatch(openLoadingAction())
+        const res = await userServices.getMyScheduleInjectionServices()
+        if (res.status === HTTP_200 && res.data.status) {
+            dispatch(getMyScheduleInjectionAction(res.data.data))
+            dispatch(closeLoadingAction())
+            return true
+        } else {
+            dispatch(getMyScheduleInjectionAction({}))
+            dispatch(closeLoadingAction())
+            return false
+        }
+    } catch (e) {
+        dispatch(getMyScheduleInjectionAction({}))
         dispatch(closeLoadingAction())
         return false
     }

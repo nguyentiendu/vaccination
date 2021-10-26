@@ -72,6 +72,7 @@ function RouterGuard(props) {
         if (checkUrlInRole(url, "PUBLIC")) {
             return
         } else if (checkUrlInRole(url, "USER_LOGIN")) {
+
             if (Object.keys(userInfo).length !== 0) {
                 return
             } else {

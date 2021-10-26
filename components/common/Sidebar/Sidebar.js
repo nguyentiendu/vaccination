@@ -78,7 +78,7 @@ function Sidebar(props) {
             return (
                 <>
                     <ul className="md:flex-col md:min-w-full flex flex-col list-none">
-                        <li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>
+                        <li className={["items-center", router.asPath === "/vaccination_place/schedule_injections" ? "bg-gray-100" : ""].join(" ")}>
                             <Link href="/vaccination_place/schedule_injections">
                                 <a
                                     href="#"
@@ -88,26 +88,26 @@ function Sidebar(props) {
                                 </a>
                             </Link>
                         </li>
-                        {/*<li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>*/}
-                        {/*    <Link href="/">*/}
-                        {/*        <a*/}
-                        {/*            href="#pablo"*/}
-                        {/*            className="text-xs uppercase py-3 font-bold block"*/}
-                        {/*        >*/}
-                        {/*            <i className="fas fa-hospital-user mx-2 text-sm"></i> Xếp lịch tiêm*/}
-                        {/*        </a>*/}
-                        {/*    </Link>*/}
-                        {/*</li>*/}
-                        {/*<li className={["items-center", router.asPath === "..." ? "bg-gray-100" : ""].join(" ")}>*/}
-                        {/*    <Link href="/">*/}
-                        {/*        <a*/}
-                        {/*            href="#pablo"*/}
-                        {/*            className="text-xs uppercase py-3 font-bold block"*/}
-                        {/*        >*/}
-                        {/*            <i className="fas fa-hospital-user mx-2 text-sm"></i> Hồ sơ tiêm chủng*/}
-                        {/*        </a>*/}
-                        {/*    </Link>*/}
-                        {/*</li>*/}
+                        <li className={["items-center", router.asPath === "/vaccination_place/accept_vaccination_record" ? "bg-gray-100" : ""].join(" ")}>
+                            <Link href="/vaccination_place/accept_vaccination_record">
+                                <a
+                                    href="#pablo"
+                                    className="text-xs uppercase py-3 font-bold block"
+                                >
+                                    <i className="fas fa-hospital-user mx-2 text-sm"></i> Xác nhận tiêm chủng
+                                </a>
+                            </Link>
+                        </li>
+                        <li className={["items-center", router.asPath === "/vaccination_place/vaccination_record" ? "bg-gray-100" : ""].join(" ")}>
+                            <Link href="/vaccination_place/vaccination_record">
+                                <a
+                                    href="#pablo"
+                                    className="text-xs uppercase py-3 font-bold block"
+                                >
+                                    <i className="fas fa-id-badge mx-2 text-sm"></i> Hồ sơ tiêm chủng
+                                </a>
+                            </Link>
+                        </li>
                     </ul>
                 </>
             );

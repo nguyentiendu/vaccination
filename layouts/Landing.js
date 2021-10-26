@@ -15,11 +15,15 @@ function Landing(props) {
 
     const router = useRouter()
     const navigateInjection = () => {
-        if(userInfo.idUser.toString() === "0"){
-            snackActions.info('Bạn cần phải nhập đầy đủ thông tin cá nhân trước khi đăng ký')
-            router.push("/profile")
+        if(!userInfo.idUser){
+            router.push("/login")
         }else{
-            router.push("/registration_vaccination")
+            if(userInfo.idUser.toString() === "0"){
+                snackActions.info('Bạn cần phải nhập đầy đủ thông tin cá nhân trước khi đăng ký')
+                router.push("/profile")
+            }else{
+                router.push("/registration_vaccination")
+            }
         }
     }
 

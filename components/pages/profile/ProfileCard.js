@@ -1,19 +1,6 @@
-import {useRouter} from "next/router";
-import React, {useEffect, useState} from "react";
-import {snackActions} from "../../../helper/showSnackBar";
-import {validationInvalid} from "../../../helper/validate/validation";
-import TextField from "@mui/material/TextField";
-import RegisterStyle from "../registration_vaccination/RegisterStyle.module.scss";
-import MenuItem from "@mui/material/MenuItem";
-import FormGroup from "@mui/material/FormGroup";
-import FormControlLabel from "@mui/material/FormControlLabel";
-import Checkbox from "@mui/material/Checkbox";
-import Button from "@mui/material/Button";
-import {getAllVaccinationPlace} from "../../../redux/actions/vaccinationPlaceAction";
-import {registrationVaccinationAction} from "../../../redux/actions/registrationVaccinationAction";
+import React, {useEffect} from "react";
 import {connect} from "react-redux";
-import {dataHealth, dataPriorities} from "../registration_vaccination/RegistrationVaccinationForm";
-import {dataAllCity, dataAllDistrict, dataAllSubDistrict} from "../vaccination_place/AddVaccinationPlace";
+import {dataPriorities} from "../registration_vaccination/RegistrationVaccinationForm";
 import {getRegistrationVaccination} from "../../../redux/actions/profileAction";
 
 function ProfileCard(props) {

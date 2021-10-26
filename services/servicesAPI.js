@@ -229,7 +229,18 @@ export const userServices = {
     getMyVaccinationPlaceServices: () => {
         return Axios({
             url: `${DOMAIN_API}/users/show_vaccination_place`,
-            method: "POST",
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+        },);
+    },
+    getMyScheduleInjectionServices: () => {
+        return Axios({
+            url: `${DOMAIN_API}/injections/search_schedule_injections`,
+            method: "GET",
             headers: {
                 "Access-Control-Allow-Origin": "*",
                 "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
@@ -328,4 +339,53 @@ export const registrationVaccineServices = {
             data: data,
         },);
     },
+}
+
+export const vaccinationRecordServices = {
+    getAllScheduleInjectionsServices: () => {
+        return Axios({
+            url: `${DOMAIN_API}/vaccination_records/show_all_schedule_injections`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+        },);
+    },
+    createVaccinationRecordServices: (data) => {
+        return Axios({
+            url: `${DOMAIN_API}/vaccination_records/create_vaccination_records`,
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+            method: "POST",
+            data: data,
+        },);
+    },
+    getAllVaccinationRecordServices: () => {
+        return Axios({
+            url: `${DOMAIN_API}/vaccination_records/show_all_vaccination_records`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+        },);
+    },
+    updateVaccinationRecordServices: (id, data) => {
+        return Axios({
+            url: `${DOMAIN_API}/vaccination_records/update_vaccination_records_detail_${id}`,
+            method: "POST",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN),
+            },
+            data: data,
+        },);
+    }
 }

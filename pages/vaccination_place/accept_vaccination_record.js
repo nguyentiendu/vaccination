@@ -1,13 +1,11 @@
-import {useEffect, useState} from "react";
+import {useEffect} from "react";
 import Management from "../../layouts/Management";
-import ScheduleInjectionsTable from "../../components/pages/schedule_injections/ScheduleInjectionsTable";
-import {userServices} from "../../services/servicesAPI";
-import {HTTP_200} from "../../services/define_HTTP";
 import {useRouter} from "next/router";
-import {connect} from "react-redux";
 import {getCurrentPlace} from "../../redux/actions/vaccinationPlaceAction";
+import {connect} from "react-redux";
+import AcceptRecordTable from "../../components/pages/accept_vaccination_record/AcceptRecordTable";
 
-function ScheduleInjections(props) {
+function AcceptVaccinationRecord(props) {
 
     const router = useRouter()
 
@@ -29,15 +27,16 @@ function ScheduleInjections(props) {
                 <div className="w-full mb-12 px-4">
                     <div className="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded bg-white">
                         <div className="my-5 ml-2 uppercase text-blueGray-600 text-lg font-bold ">
-                            Duyệt đăng ký tiêm - Điểm tiêm : {currentPlace.namePlace}
+                            Xác nhận tiêm chủng - lập hồ sơ tiêm chủng : {currentPlace.namePlace}
                         </div>
-                        <ScheduleInjectionsTable/>
+                        <AcceptRecordTable />
                     </div>
                 </div>
             </div>
         </Management>
     );
 }
+
 
 const mapStateToProps = (state) => ({
     vaccinationPlaceReducer: state.vaccinationPlaceReducer
@@ -47,4 +46,4 @@ const mapDispatchToProps = {
     getCurrentPlace
 };
 
-export default connect(mapStateToProps, mapDispatchToProps)(ScheduleInjections);
+export default connect(mapStateToProps, mapDispatchToProps)(AcceptVaccinationRecord);
