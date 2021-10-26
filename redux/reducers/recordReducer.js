@@ -2,9 +2,7 @@ import * as TYPE from "../types/recordType";
 import { GET_VACCINATION_RECORD} from "../types/recordType";
 
 const initialState = {
-    dataVaccinationRecord: {
-        
-    }
+    dataVaccinationRecord: []
 }
 
 const recordReducer = (state = initialState, action) =>{

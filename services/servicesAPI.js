@@ -5,6 +5,21 @@ import {DOMAIN_API} from "./domain";
 import Cookies from 'js-cookie'
 import {USER_TOKEN} from "../helper/define";
 
+
+export const vaccinationRecordServices = {
+    getDataRecordServices: () => {
+        return Axios({
+            url: `${DOMAIN_API}/users/my_vaccinations_record`,
+            method: "GET",
+            headers: {
+                "Access-Control-Allow-Origin": "*",
+                "Access-Control-Allow-Headers": "Origin, X-Requested-With, Content-Type, Accept",
+                "token": Cookies.get(USER_TOKEN)
+            },
+        })
+    }
+}
+
 export const registerServices = {
     getDataVaccinationPlace: () =>{
         return Axios({
