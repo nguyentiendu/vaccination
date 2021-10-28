@@ -10,6 +10,7 @@ import adminReducer from './adminReducer'
 import scheduleInjectionsReducer from "./scheduleInjectionsReducer";
 import acceptRecordReducer from "./acceptRecordReducer";
 import vaccinationRecordReducer from "./vaccinationRecordReducer";
+import myVaccinationRecordReducer from "./myVaccinationRecordReducer";
 
 
 const rootReducer = combineReducers({
@@ -23,7 +24,8 @@ const rootReducer = combineReducers({
     adminReducer,
     scheduleInjectionsReducer,
     acceptRecordReducer,
-    vaccinationRecordReducer
+    vaccinationRecordReducer,
+    myVaccinationRecordReducer
 })
 
 export default rootReducer

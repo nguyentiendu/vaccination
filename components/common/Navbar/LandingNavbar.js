@@ -66,7 +66,16 @@ function LandingNavbar(props) {
                 </MenuItem>
             )
         }else{
-            return
+            return (
+                <div>
+                    <MenuItem onClick={async ()=>{await router.push("/profile")}}>
+                        <p>Thông tin cá nhân</p>
+                    </MenuItem>
+                    <MenuItem onClick={async ()=>{await router.push("/my_vaccination_record")}}>
+                        <p>Hồ sơ tiêm chủng</p>
+                    </MenuItem>
+                </div>
+            )
         }
     }
 
@@ -100,9 +109,6 @@ function LandingNavbar(props) {
                             {userInfo.email}
                         </p>
                         {showManagement()}
-                        <MenuItem onClick={async ()=>{await router.push("/profile")}}>
-                            <p>Hồ sơ</p>
-                        </MenuItem>
                         <Divider />
                         <MenuItem onClick={onClickLogout}>
                             <Logout fontSize="small" className="mr-4"/>

@@ -13,7 +13,6 @@ export const registrationVaccinationAction = (dataRegisterPerson) => async dispa
             "note": dataRegisterPerson.note,
             "number_of_times": dataRegisterPerson.numberInject
         })
-        console.log(res)
         if(res.status === HTTP_200 && res.data.status){
             dispatch(closeLoadingAction())
             return true

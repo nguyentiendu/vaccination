@@ -72,9 +72,6 @@ function Navbar(props) {
               <MenuItem className="" onClick={async ()=>{await router.push("/")}}>
                 <p>Quay về trang chủ</p>
               </MenuItem>
-              <MenuItem onClick={async ()=>{await router.push("/profile")}}>
-                <p>Hồ sơ</p>
-              </MenuItem>
               <Divider />
               <MenuItem onClick={onClickLogout}>
                 <Logout fontSize="small" className="mr-4"/>

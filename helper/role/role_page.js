@@ -11,7 +11,8 @@ const rolePage = {
     "USER_LOGIN": [
         "/register_vaccine",
         "/profile",
-        "/registration_vaccination"
+        "/registration_vaccination",
+        "/my_vaccination_record",
     ],
     // 1 admin
     "ADMIN": [
@@ -28,6 +29,8 @@ const rolePage = {
     "VACCINATION_PLACE": [
         "/vaccination_place",
         "/vaccination_place/schedule_injections",
+        "/vaccination_place/vaccination_record",
+        "/vaccination_place/accept_vaccination_record"
     ],
     // 4 doanh nghiep
     "ORGANIZATION": [
