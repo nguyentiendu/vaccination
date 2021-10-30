@@ -15,7 +15,6 @@ export const loginAction = (dataInfoUser) => ({
     type: LOGIN,
     dataInfoUser,
 });
-
 export const getInfoUserAction = (dataInfoUser) => ({
     type: GET_USER_INFO,
     dataInfoUser,
@@ -25,8 +24,23 @@ export const getInfoUser = () => async dispatch => {
     try {
         const res = await userServices.getInfoUserServices()
         if (res.status === HTTP_200 && res.data.status) {
+            let dataInfoUser = res.data.data
             dispatch(getInfoUserAction(res.data.data))
-            return res.data.data
+            return {
+                idUser: dataInfoUser.id_user,
+                fullName: dataInfoUser.name_user,
+                idRole: dataInfoUser.role,
+                email: dataInfoUser.email,
+                phoneNumber: dataInfoUser.phone_number,
+                identify: dataInfoUser.indentify,
+                gender: dataInfoUser.gender,
+                insurance: dataInfoUser.insurance,
+                dob: dataInfoUser.dob,
+                address: dataInfoUser.address,
+                idCity: dataInfoUser.id_city,
+                idDistrict: dataInfoUser.id_district,
+                idSubDistrict: dataInfoUser.id_sub_district,
+            }
         } else {
             return {}
         }
