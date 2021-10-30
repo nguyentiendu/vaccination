@@ -6,7 +6,7 @@ import Chip from '@mui/material/Chip';
 import TextField from '@mui/material/TextField';
 import moment from "moment";
 import {getMyVaccinationRecord} from "../../../redux/actions/myVaccinationRecordAction";
-import QuickSearchToolbar from "./QuickSearchToolBar";
+import ToolbarMyVCRecord from "./ToolbarMyVCRecord";
 
 
 const columns = [
@@ -100,7 +100,7 @@ function VaccinationRecordForm(props) {
                 <h3 className="text-2xl mx-auto text-center font-semibold uppercase my-4" >Đã tiêm các mũi</h3>
                 <div style={{height: 460, width: '100%'}}>
                     <DataGrid
-                        components={{Toolbar: QuickSearchToolbar}}
+                        components={{Toolbar: ToolbarMyVCRecord}}
                         rows={rows}
                         columns={columns}
                         sortModel={sortModel}

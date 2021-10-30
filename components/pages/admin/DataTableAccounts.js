@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import Chip from '@mui/material/Chip';
 
 import {getDataAccounts} from '../../../redux/actions/adminAction'
-import QuickSearchToolbar from './QuickSearchToolbar'
+import ToolbarAdmin from './ToolbarAdmin'
 import DeleteAccount from "./DeleteAccount";
 
 const columns = [
@@ -101,7 +101,7 @@ function DataTableAccounts(props) {
     return (
         <div style={{height: 470, width: '100%'}}>
             <DataGrid
-                components={{Toolbar: QuickSearchToolbar}}
+                components={{Toolbar: ToolbarAdmin}}
                 rows={rows}
                 columns={columns}
                 sortModel={sortModel}

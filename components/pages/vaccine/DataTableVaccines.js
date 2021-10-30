@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 import Chip from '@mui/material/Chip';
 
 import {getDataVaccines} from '../../../redux/actions/vaccinesAction'
-import QuickSearchToolbar from './QuickSearchToolbar'
+import ToolbarVaccine from './ToolbarVaccine'
 import EditVaccine from  './EditVaccine'
 import DeleteVaccine from "./DeleteVaccine";
 
@@ -88,7 +88,7 @@ function DataTableVaccines(props) {
     return (
         <div style={{height: 470, width: '100%'}}>
             <DataGrid
-                components={{Toolbar: QuickSearchToolbar}}
+                components={{Toolbar: ToolbarVaccine}}
                 rows={rows}
                 columns={columns}
                 sortModel={sortModel}

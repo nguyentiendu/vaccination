@@ -4,7 +4,7 @@ import {connect} from "react-redux";
 
 import {getDataAccountOrganization} from '../../../redux/actions/accountOrganizationAction'
 import ConfirmAccountOrganization from "./ConfirmAccountOrganization";
-import QuickSearchToolbar from './QuickSearchToolbar'
+import ToolBarAccountOrganization from './ToolBarAccountOrganization'
 
 const columns = [
     {field: 'id_organization', headerName: 'ID', width: 100},
@@ -75,7 +75,7 @@ function DataTableAccountOrganization(props) {
     return (
         <div style={{height: 470, width: '100%'}}>
             <DataGrid
-                components={{Toolbar: QuickSearchToolbar}}
+                components={{Toolbar: ToolBarAccountOrganization}}
                 rows={rows}
                 columns={columns}
                 sortModel={sortModel}

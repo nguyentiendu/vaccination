@@ -3,11 +3,12 @@ import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import PropTypes from "prop-types";
-import AddNewAccount from "./AddNewAccount";
 
-import CSS from "./VCMNCSS.module.scss";
 
-export default function QuickSearchToolbar(props) {
+import CSS from "../vaccine/VCMNCSS.module.scss";
+import AddVaccinationPlace from "./AddVaccinationPlace";
+
+export default function ToolbarVaccinationPlace(props) {
     return (
         <div className={CSS.headerTableData}>
             <TextField
@@ -31,12 +32,12 @@ export default function QuickSearchToolbar(props) {
                     ),
                 }}
             />
-            <AddNewAccount/>
+            <AddVaccinationPlace />
         </div>
     );
 }
 
-QuickSearchToolbar.propTypes = {
+ToolbarVaccinationPlace.propTypes = {
     clearSearch: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,

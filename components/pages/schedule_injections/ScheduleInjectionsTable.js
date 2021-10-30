@@ -3,7 +3,7 @@ import {DataGrid} from '@mui/x-data-grid';
 import {connect} from "react-redux";
 import Chip from '@mui/material/Chip';
 import {getAllRegistration} from "../../../redux/actions/scheduleInjectionsAction";
-import QuickSearchToolbar from "./QuickSearchToolBar";
+import ToolbarSheduleInjections from "./ToolbarSheduleInjections";
 
 const columns = [
     {field: 'id_dangkytiem', headerName: 'ID', width: 100},
@@ -82,7 +82,7 @@ function ScheduleInjectionsTable(props) {
     return (
         <div style={{height: 460, width: '100%'}}>
             <DataGrid
-                components={{Toolbar: QuickSearchToolbar}}
+                components={{Toolbar: ToolbarSheduleInjections}}
                 checkboxSelection
                 onSelectionModelChange={onSelectBox}
                 rows={rows}

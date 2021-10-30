@@ -5,8 +5,9 @@ import ClearIcon from "@mui/icons-material/Clear";
 import PropTypes from "prop-types";
 
 import CSS from "../vaccine/VCMNCSS.module.scss";
-    
-export default function QuickSearchToolbar(props) {
+import AcceptRegistration from "./AcceptRegistration";
+
+export default function ToolbarSheduleInjections(props) {
     return (
         <div className={CSS.headerTableData}>
             <TextField
@@ -30,13 +31,14 @@ export default function QuickSearchToolbar(props) {
                     ),
                 }}
             />
-            <div className="my-8"></div>
+            <AcceptRegistration listIDRegistration={props.listIDRegistration}/>
         </div>
     );
 }
 
-QuickSearchToolbar.propTypes = {
+ToolbarSheduleInjections.propTypes = {
     clearSearch: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
+    listIDRegistration: PropTypes.array,
 };

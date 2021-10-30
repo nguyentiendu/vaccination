@@ -3,11 +3,11 @@ import SearchIcon from "@mui/icons-material/Search";
 import IconButton from "@mui/material/IconButton";
 import ClearIcon from "@mui/icons-material/Clear";
 import PropTypes from "prop-types";
+import AddNewVaccine from "./AddNewVaccine";
 
-import CSS from "../vaccine/VCMNCSS.module.scss";
-import AcceptRegistration from "./AcceptRegistration";
+import CSS from "./VCMNCSS.module.scss";
 
-export default function QuickSearchToolbar(props) {
+export default function ToolbarVaccine(props) {
     return (
         <div className={CSS.headerTableData}>
             <TextField
@@ -31,14 +31,13 @@ export default function QuickSearchToolbar(props) {
                     ),
                 }}
             />
-            <AcceptRegistration listIDRegistration={props.listIDRegistration}/>
+            <AddNewVaccine/>
         </div>
     );
 }
 
-QuickSearchToolbar.propTypes = {
+ToolbarVaccine.propTypes = {
     clearSearch: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,
-    listIDRegistration: PropTypes.array,
 };

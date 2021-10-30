@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 
 import CSS from "./CSSProvinces.module.scss";
 
-export default function QuickSearchToolbar(props) {
+export default function ToolbarProvinces(props) {
     return (
         <div className={CSS.headerTableData}>
             <TextField
@@ -35,7 +35,7 @@ export default function QuickSearchToolbar(props) {
     );
 }
 
-QuickSearchToolbar.propTypes = {
+ToolbarProvinces.propTypes = {
     clearSearch: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,

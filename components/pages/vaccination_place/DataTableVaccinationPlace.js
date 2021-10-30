@@ -6,7 +6,7 @@ import Chip from '@mui/material/Chip';
 import {getAllVaccinationPlace} from '../../../redux/actions/vaccinationPlaceAction'
 import DeleteVaccinationPlace from "./DeleteVaccinationPlace";
 import EditVaccinationPlace from "./EditVaccinationPlace";
-import QuickSearchToolbar from './QuickSearchToolbar'
+import ToolbarVaccinationPlace from './ToolbarVaccinationPlace'
 
 const columns = [
     {field: 'id_vaccination_place', headerName: 'ID', width: 100},
@@ -89,7 +89,7 @@ function DataTableVaccinationPlace(props) {
     return (
         <div style={{height: 460, width: '100%'}}>
             <DataGrid
-                components={{Toolbar: QuickSearchToolbar}}
+                components={{Toolbar: ToolbarVaccinationPlace}}
                 rows={rows}
                 columns={columns}
                 sortModel={sortModel}

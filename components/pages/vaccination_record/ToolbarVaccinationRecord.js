@@ -6,7 +6,7 @@ import PropTypes from "prop-types";
 
 import CSS from "../vaccine/VCMNCSS.module.scss";
 
-export default function QuickSearchToolbar(props) {
+export default function ToolbarVaccinationRecord(props) {
     return (
         <div className={CSS.headerTableData}>
             <TextField
@@ -34,7 +34,7 @@ export default function QuickSearchToolbar(props) {
     );
 }
 
-QuickSearchToolbar.propTypes = {
+ToolbarVaccinationRecord.propTypes = {
     clearSearch: PropTypes.func.isRequired,
     onChange: PropTypes.func.isRequired,
     value: PropTypes.string.isRequired,

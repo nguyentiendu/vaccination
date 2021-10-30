@@ -3,7 +3,7 @@ import {DataGrid} from '@mui/x-data-grid';
 import {connect} from "react-redux";
 import Chip from '@mui/material/Chip';
 import moment from "moment";
-import QuickSearchToolbar from "./QuickSearchToolBar";
+import ToolbarVaccinationRecord from "./ToolbarVaccinationRecord";
 import {getAllVaccinationRecord} from "../../../redux/actions/vaccinationRecordAction";
 import UpdateVaccinationRecord from "./UpdateVaccinationRecord";
 
@@ -120,7 +120,7 @@ function VaccinationRecordTable(props) {
     return (
         <div style={{height: 460, width: '100%'}}>
             <DataGrid
-                components={{Toolbar: QuickSearchToolbar}}
+                components={{Toolbar: ToolbarVaccinationRecord}}
                 rows={rows}
                 columns={columns}
                 sortModel={sortModel}
