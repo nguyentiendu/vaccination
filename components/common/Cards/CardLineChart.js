@@ -24,7 +24,8 @@ function CardLineChart(props) {
             backgroundColor: "#fff",
             borderColor: "#36A2EB",
             data: dataLineChart.injected,
-            fill: false,
+            // fill: false,
+            lineTension:0
           },
         ],
       },
@@ -39,6 +40,7 @@ function CardLineChart(props) {
         legend: {
           labels: {
             fontColor: "#000",
+
           },
           align: "end",
           position: "bottom",
