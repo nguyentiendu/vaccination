@@ -30,7 +30,6 @@ function CardBarChart(props) {
             data: dataBarChart.number_vaccine,
             fill: false,
             barThickness: 20,
-            min:5,
           },
           
         ],
