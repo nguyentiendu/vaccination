@@ -12,6 +12,29 @@ import RegisterStyle from "../../pages/registration_vaccination/RegisterStyle.mo
 import {getAllVaccinationPlace} from "../../../redux/actions/vaccinationPlaceAction";
 import MenuItem from '@mui/material/MenuItem';
 
+export const dataRoles = [
+    {
+        "id_role" : 1,
+        "name_role": "Admin"
+    },
+    {
+        "id_role" : 2,
+        "name_role": "Quản lý"
+    },
+    {
+        "id_role" : 3,
+        "name_role": "Quản lý điểm tiêm"
+    },
+    {
+        "id_role" : 4,
+        "name_role": "Tổ chức"
+    },
+    {
+        "id_role" : 5,
+        "name_role": "Người dân"
+    }
+]
+
 function AddNewAccount(props) {
 
     // Bật tắt modal thêm mới
@@ -95,6 +118,13 @@ function AddNewAccount(props) {
         }))
     }
 
+    const handleChangeRole = (event) => {
+        setDataNewAccount(state => ({
+            value: {...state.value, id_role: event.target.value},
+            error: {...state.error}
+        }))
+    }
+
     return (
         <>
             <Button
@@ -164,7 +194,7 @@ function AddNewAccount(props) {
                         <span
                             className="text-red-500 text-sm">{dataNewAccount.error.password ? "Không được bỏ trống" : ""}</span>
                     </div>
-                    <div className={VCManagementCSS.wrapperDateTime}>
+                    <div className={VCManagementCSS.wrapperInput}>
                         <div className={VCManagementCSS.wrapperInput}>
                             <label
                                 className="block uppercase text-blueGray-600 text-xs font-bold mb-3"
@@ -173,28 +203,26 @@ function AddNewAccount(props) {
                                 Mã quyền
                             </label>
                             <CustomInput
-                                defaultValue={dataNewAccount.value.id_role}
-                                className={VCManagementCSS.customInput}
-                                type="number"
+                                className="min-w-full xl:w-full"
                                 required
                                 id="outlined-required"
-                                label="Mã"
-                                onChange={(event) => {
-                                    setDataNewAccount(state => ({
-                                        value: {...state.value, id_role: event.target.value},
-                                        error: {
-                                            ...state.error,
-                                            id_role: validationInvalid(event.target.value)
-                                        }
-                                    }))
-                                }}
-                            />
+                                label="Tên quyền"
+                                select
+                                onChange={handleChangeRole}
+                                value={dataNewAccount.value.id_role}
+                            >
+                                {dataRoles.map((item, index) => (
+                                    <MenuItem key={index} value={item.id_role}>
+                                        {item.name_role}
+                                    </MenuItem>
+                                ))}
+                            </CustomInput>
                             <span
                                 className="text-red-500 text-sm">{dataNewAccount.error.id_role ? "Không được bỏ trống" : ""}</span>
                         </div>
                         <div>
                             {
-                                dataNewAccount.value.id_role!=="3" ? "" : 
+                                dataNewAccount.value.id_role!==3 ? "" : 
                                 <div className={VCManagementCSS.wrapperInput}>
                                     <label
                                         className="block uppercase text-blueGray-600 text-xs font-bold mb-3"
